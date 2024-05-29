@@ -25,7 +25,7 @@ export function useSignIn() {
     onSuccess: (data) => {
       console.log("data",data)
       queryClient.setQueryData([QUERY_KEY.user], data);
-      navigate("/home");
+      navigate("/");
     },
     onError: () => {
       <>error</>;

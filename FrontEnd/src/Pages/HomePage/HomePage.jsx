@@ -3,9 +3,10 @@ import "./HomePage.css"
 import "../../Css/HFBase.css"
 import "../../Css/Base.css"
 import "../../Css/grid.css"
+import { useNavigate } from "react-router-dom"
 
 export default function HomePage () {
-
+    const navigate = useNavigate();
 
   return (
     <div className="app">
@@ -198,7 +199,7 @@ export default function HomePage () {
 
             <ul className="header__btn">
                 <li className="header__btn-login">
-                    <a href="#" className="header__btn-login-link">Đăng Nhập</a>
+                    <button  className="header__btn-login-link" onClick={navigate("/Login")}>Đăng Nhập</button>
                 </li>
                 <li className="header__btn-sign-up">
                     <a href="#" className="header__btn-sign-up-link">Đăng Ký</a>
