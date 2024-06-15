@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { LoginAPI } from "../../Services/AuthService";
 import {toast} from "react-toastify"
+import * as userLocalStorage from './user.localstore';
 export function useSignIn() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ export function useSignIn() {
   const { mutate: signInMutation } = useMutation({
     mutationFn: ({ username, password }) => signIn(username, password),
     onSuccess: (data) => {
-      console.log("data",data)
+      console.log("data",data);
+      userLocalStorage.saveUser(data);
       queryClient.setQueryData([QUERY_KEY.user], data);
       navigate("/");
     },

@@ -1,23 +1,29 @@
-import React from "react"
-import "./HomePage.css"
+import React, { useEffect, useState } from "react"
+
 import "../../Css/HFBase.css"
+import "../../Css/Responsive/HFResponsive.css"
 import "../../Css/Base.css"
+import "./HomePage.css"
 import "../../Css/grid.css"
+import "../../Css/Responsive/TrangChuResponsive.css"
+import "../../Css/fontawesome-free-6.0.0-web/css/all.css"
+import 'bootstrap/dist/css/bootstrap.css';
 import { useNavigate } from "react-router-dom"
 
 export default function HomePage () {
+
     const navigate = useNavigate();
 
   return (
-    <div className="app">
+    <React.Fragment>
         <div className="header">
-            <a className="header__logo" href="#">
+            <a className="header__logo" href="#" onClick={() => navigate("/")}>
                 <img src="./images/logo.webp" alt="Logo" className="header__logo-img"/>
             </a>
 
             <ul className="header__list hide-on-mobile">
                 <li className="header__item header__item-sub1">
-                    <a href="ViecLam.html" className="header__item-link">Việc Làm</a>
+                    <a className="header__item-link" onClick={() => navigate("/jobpage")}>Việc Làm</a>
                     <div className="header__list-sub1">
                         <ul className="list__sub">
                             <li className="list__sub-item">
@@ -110,7 +116,7 @@ export default function HomePage () {
                     </div>
                 </li>
                 <li className="header__item header__item-sub3">
-                    <a href="CongTy.html" className="header__item-link">Công Ty</a>
+                    <a onClick={() => navigate("/stockpage")} className="header__item-link">Công Ty</a>
                     <div className="header__list-sub3">
                         <ul className="list__sub">
                             <li className="list__sub-item">
@@ -198,8 +204,8 @@ export default function HomePage () {
 
 
             <ul className="header__btn">
-                <li className="header__btn-login">
-                    <button  className="header__btn-login-link" onClick={navigate("/Login")}>Đăng Nhập</button>
+                <li className="header__btn-login" >
+                    <a onClick={() => navigate("/login")} className="header__btn-login-link" >Đăng Nhập</a>
                 </li>
                 <li className="header__btn-sign-up">
                     <a href="#" className="header__btn-sign-up-link">Đăng Ký</a>
@@ -390,10 +396,11 @@ export default function HomePage () {
                 </ul>
             </div>
         </div>
+
         <div className="body">
             <div className="search ">
                 <div className="grid wide">
-                    <div className="row">
+                    <div className="row" >
                         <div className="col l-7 c-12 search__left">
                             <h1>Tìm Việc Phù Hợp Với Bạn</h1>
                             <div className="search__left-form ">
@@ -626,7 +633,7 @@ export default function HomePage () {
             </div>
             <div className="creatCV">
                 <div className="grid wide">
-                    <div className="row creatCV__container">
+                    <div className="row creatCV__container" style={{display: "flex"}}>
                         <div className="col l-6 m-12 c-12">
                             <div className="creatCV__container-left">
                                 <div className="creatCV__container-left-div">
@@ -2160,6 +2167,6 @@ export default function HomePage () {
                 </div>
             </div>
         </div>
-    </div>
+    </React.Fragment>
   )
 }
